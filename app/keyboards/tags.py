@@ -10,11 +10,14 @@ def build_tags_keyboard() -> InlineKeyboardMarkup:
         inline_keyboard=[
             [
                 # то что видит юзер - то что получает бот
-                InlineKeyboardButton(text="[ВАЖНОЕ]", callback_data="tag:important"),
+                InlineKeyboardButton(text="[ВАЖНОЕ]", callback_data="tag:important"),            ],
+            [
                 InlineKeyboardButton(text="[НА ПОТОМ]", callback_data="tag:later"),
             ],
             [
                 InlineKeyboardButton(text="[ДОМ]", callback_data="tag:home"),
+            ],
+            [
                 InlineKeyboardButton(text="[РАБОТА]", callback_data="tag:work"),
             ]
         ]
