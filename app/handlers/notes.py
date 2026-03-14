@@ -21,6 +21,7 @@ async def start_handler(message: Message) -> None:
 # • CommandStart() — конкретно фильтр для /start
 # • async def и await нужны, потому что бот работает асинхронно
 
+# выдача кнопок тегов если что то написали
 @router.message(F.text & ~F.text.startswith("/"))
 async def note_handler(message: Message) -> None:
     text = message.text.strip()
@@ -33,6 +34,7 @@ async def note_handler(message: Message) -> None:
         reply_markup=build_tags_keyboard()
     )
 
+# получаем наименование тега
 @router.callback_query(F.data.startswith("tag:"))
 async def tag_handler(callback: CallbackQuery) -> None:
     if callback.message is None:
